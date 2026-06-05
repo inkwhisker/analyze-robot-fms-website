@@ -1,0 +1,994 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Robot Foundation Models - Paper Submission</title>
+  <meta name="description" content="Paper submission website with real robot (DROID) and simulation (LIBERO) experiment videos.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Sora:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="bg-glow bg-glow-1" aria-hidden="true"></div>
+  <div class="bg-glow bg-glow-2" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <a class="logo" href="#top">RFM Submission</a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="#videos">Videos</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero reveal">
+      <p class="eyebrow">Conference Submission 2026</p>
+      <h1>
+        <span>Understanding Robustness and Generalization of Robot Foundation Models</span>
+      </h1>
+      <p class="hero-copy" style="white-space: nowrap;">
+        This website provides experiment videos from both the DROID real-robot setup and LIBERO simulation benchmarks.
+      </p>
+      <ul class="stats" aria-label="Study metrics">
+  
+      </ul>
+    </section>
+
+    <!--
+    <section id="results" class="panel reveal">
+      <h2>Key Results</h2>
+      <div class="result-grid">
+        <article>
+          <h3>Real Robot Generalization</h3>
+          <p>
+            Summarize your DROID outcomes here. Mention how your model handles
+            diverse objects, perturbations, and long-horizon tasks.
+          </p>
+        </article>
+        <article>
+          <h3>Simulation Transferability</h3>
+          <p>
+            Summarize your LIBERO results. Include benchmark variants and policy
+            consistency across task families.
+          </p>
+        </article>
+        <article>
+          <h3>Failure & Recovery Cases</h3>
+          <p>
+            Include representative failures and recoveries to strengthen reviewer trust.
+          </p>
+        </article>
+      </div>
+    </section>
+    -->
+
+    <section id="videos" class="reveal">
+      <div class="section-head">
+        <h2>Experiment Videos</h2>
+        <p>Toggle between tracks to focus on real robot or simulation evidence.</p>
+      </div>
+
+      <div class="filters" role="tablist" aria-label="Video track filter">
+        <button class="filter-btn is-active" data-filter="all" role="tab" aria-selected="true">All</button>
+        <button class="filter-btn" data-filter="droid" role="tab" aria-selected="false">DROID (Real Robot)</button>
+        <button class="filter-btn" data-filter="libero" role="tab" aria-selected="false">LIBERO (Simulation)</button>
+      </div>
+
+      <p class="scroll-hint" aria-live="polite">Tip: Wide comparison layouts can scroll horizontally on smaller screens. Swipe on trackpad or hold Shift + mouse wheel to reveal more cards.</p>
+
+      <div class="video-grid">
+        <div class="track-group" data-track-group="droid">
+          <h3 class="track-title">DROID (Real Robot)</h3>
+
+          <div class="droid-task-grid">
+            <section class="droid-scenario">
+              <h4 class="droid-scenario-title">Original Setup</h4>
+              <div class="droid-comparison-row">
+                <article class="video-card" data-track="droid" data-outcome="success">
+                  <header>
+                    <div class="card-tags">
+                      <p class="chip">DROID</p>
+                      <p class="chip chip-model">DreamZero</p>
+                    </div>
+                    <h3>Baseline Pick-and-Place: Stable Completion</h3>
+                  </header>
+                  <video controls preload="metadata">
+                    <source src="assets/videos/real/dz/original/banana.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                  <p>DreamZero executes a clean baseline trajectory, reliably placing the target object on the plate despite nearby distractors.</p>
+                </article>
+
+                <article class="video-card" data-track="droid" data-outcome="success">
+                  <header>
+                    <div class="card-tags">
+                      <p class="chip">DROID</p>
+                      <p class="chip chip-model">pi0.5</p>
+                    </div>
+                    <h3>Baseline Pick-and-Place: Comparable Success</h3>
+                  </header>
+                  <video controls preload="metadata">
+                    <source src="assets/videos/real/pi05/banana.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                  <p>pi0.5 also solves the baseline instruction, serving as a reference point before harder perturbation tests.</p>
+                </article>
+              </div>
+            </section>
+
+            <section class="droid-scenario">
+              <h4 class="droid-scenario-title">Soft Pink Ball</h4>
+              <div class="droid-comparison-row">
+                <article class="video-card" data-track="droid" data-outcome="success">
+                  <header>
+                    <div class="card-tags">
+                      <p class="chip">DROID</p>
+                      <p class="chip chip-model">DreamZero</p>
+                    </div>
+                    <h3>Novel Soft Object: Better Contact Handling</h3>
+                  </header>
+                  <video controls preload="metadata">
+                    <source src="assets/videos/real/dz/pink_ball.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                  <p>DreamZero adapts to the soft pink ball and completes transfer, indicating stronger robustness to non-rigid object properties.</p>
+                </article>
+
+                <article class="video-card" data-track="droid" data-outcome="failure">
+                  <header>
+                    <div class="card-tags">
+                      <p class="chip">DROID</p>
+                      <p class="chip chip-model">pi0.5</p>
+                    </div>
+                    <h3>Novel Soft Object: Grasp Robustness Limitation</h3>
+                  </header>
+                  <video controls preload="metadata">
+                    <source src="assets/videos/real/pi05/pink_ball.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                  <p>pi0.5 shows reduced reliability on the soft object, highlighting weaker contact adaptation under material shift. It triggered collision protection when gripper grasped the soft ball, which is why the video appears to stop there. </p>
+                </article>
+              </div>
+            </section>
+
+            <section class="droid-scenario">
+              <h4 class="droid-scenario-title">Green Cup to Pink Bowl</h4>
+              <div class="droid-comparison-row">
+                <article class="video-card" data-track="droid" data-outcome="success">
+                  <header>
+                    <div class="card-tags">
+                      <p class="chip">DROID</p>
+                      <p class="chip chip-model">DreamZero</p>
+                    </div>
+                    <h3>Novel Object Transfer: Accurate Execution</h3>
+                  </header>
+                  <video controls preload="metadata">
+                    <source src="assets/videos/real/dz/green_cup_pink_bowl.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                  <p>DreamZero performs the full transfer with stable grasp and placement, demonstrating generalization to changed object identity.</p>
+                </article>
+
+                <article class="video-card" data-track="droid" data-outcome="success">
+                  <header>
+                    <div class="card-tags">
+                      <p class="chip">DROID</p>
+                      <p class="chip chip-model">pi0.5</p>
+                    </div>
+                    <h3>Novel Object Transfer: Performance Drop</h3>
+                  </header>
+                  <video controls preload="metadata">
+                    <source src="assets/videos/real/pi05/green_cup_pink_bowl.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                  <p>pi0.5 attempts the same transfer but is less stable, indicating weaker object-level generalization than DreamZero.</p>
+                </article>
+              </div>
+            </section>
+
+            <section class="droid-scenario">
+              <h4 class="droid-scenario-title">Spatial Relation: Right of Plate</h4>
+              <div class="droid-comparison-row">
+                <article class="video-card" data-track="droid" data-outcome="success">
+                  <header>
+                    <div class="card-tags">
+                      <p class="chip">DROID</p>
+                      <p class="chip chip-model">DreamZero</p>
+                    </div>
+                    <h3>Spatial Language: Correct "Right of" Grounding</h3>
+                  </header>
+                  <video controls preload="metadata">
+                    <source src="assets/videos/real/dz/spa/right_of_plate.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                  <p>DreamZero correctly grounds the relational phrase and places the object at the intended right-of location.</p>
+                </article>
+
+                <article class="video-card" data-track="droid" data-outcome="failure">
+                  <header>
+                    <div class="card-tags">
+                      <p class="chip">DROID</p>
+                      <p class="chip chip-model">pi0.5</p>
+                    </div>
+                    <h3>Spatial Language: Relation Grounding Failure</h3>
+                  </header>
+                  <video controls preload="metadata">
+                    <source src="assets/videos/real/pi05/put_banana_to_right.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                  <p>pi0.5 collapses to an "on plate" behavior, exposing a limitation in precise spatial relation understanding.</p>
+                </article>
+              </div>
+            </section>
+
+            <section class="droid-scenario">
+              <h4 class="droid-scenario-title">Object Shift Recovery</h4>
+              <div class="droid-comparison-row">
+                <article class="video-card" data-track="droid" data-outcome="success">
+                  <header>
+                    <div class="card-tags">
+                      <p class="chip">DROID</p>
+                      <p class="chip chip-model">DreamZero</p>
+                    </div>
+                    <h3>Object Shift Perturbation: Effective Replanning</h3>
+                  </header>
+                  <video controls preload="metadata">
+                    <source src="assets/videos/real/dz/object_shift.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                  <p>After object displacement, DreamZero re-estimates state and replans to recover task completion.</p>
+                </article>
+
+                <article class="video-card" data-track="droid" data-outcome="success">
+                  <header>
+                    <div class="card-tags">
+                      <p class="chip">DROID</p>
+                      <p class="chip chip-model">pi0.5</p>
+                    </div>
+                    <h3>Object Shift Perturbation: Recovery Achieved</h3>
+                  </header>
+                  <video controls preload="metadata">
+                    <source src="assets/videos/real/pi05/banana_shift.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                  <p>pi0.5 also recovers in this case, suggesting both models can handle moderate post-perturbation replanning.</p>
+                </article>
+              </div>
+            </section>
+
+            <section class="droid-scenario">
+              <h4 class="droid-scenario-title">Action Perturbation</h4>
+              <div class="droid-comparison-row">
+                <article class="video-card" data-track="droid" data-outcome="success">
+                  <header>
+                    <div class="card-tags">
+                      <p class="chip">DROID</p>
+                      <p class="chip chip-model">DreamZero</p>
+                    </div>
+                    <h3>Action Noise Injection: Policy Resilience Test</h3>
+                  </header>
+                  <video controls preload="metadata">
+                    <source src="assets/videos/real/dz/under_random_actions.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                  <p>DreamZero is evaluated under random action injection, probing control robustness to execution-time policy disturbances.</p>
+                </article>
+
+                <article class="video-card" data-track="droid" data-outcome="success">
+                  <header>
+                    <div class="card-tags">
+                      <p class="chip">DROID</p>
+                      <p class="chip chip-model">pi0.5</p>
+                    </div>
+                    <h3>Action Noise Injection: Policy Resilience Test</h3>
+                  </header>
+                  <video controls preload="metadata">
+                    <source src="assets/videos/real/pi05/original/banana.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                  <p>pi0.5 is tested under the same action noise setting for direct comparison of perturbation tolerance.</p>
+                </article>
+              </div>
+            </section>
+
+            <section class="droid-scenario">
+              <h4 class="droid-scenario-title">Visual Perturbation: Translation</h4>
+              <div class="droid-comparison-row">
+                <article class="video-card" data-track="droid" data-outcome="success">
+                  <header>
+                    <div class="card-tags">
+                      <p class="chip">DROID</p>
+                      <p class="chip chip-model">DreamZero</p>
+                    </div>
+                    <h3>Visual Shift (20% Translation): Perception Robustness</h3>
+                  </header>
+                  <video controls preload="metadata">
+                    <source src="assets/videos/real/dz/translation.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                  <p>DreamZero is tested with a translated camera view, measuring robustness to viewpoint misalignment.</p>
+                </article>
+
+                <article class="video-card" data-track="droid" data-outcome="failure">
+                  <header>
+                    <div class="card-tags">
+                      <p class="chip">DROID</p>
+                      <p class="chip chip-model">pi0.5</p>
+                    </div>
+                    <h3>Visual Shift (20% Translation): Comparative Robustness</h3>
+                  </header>
+                  <video controls preload="metadata">
+                    <source src="assets/videos/real/pi05/translation.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                  <p>pi0.5 faces the same translation perturbation, enabling side-by-side assessment against DreamZero.</p>
+                </article>
+              </div>
+            </section>
+
+            <section class="droid-scenario">
+              <h4 class="droid-scenario-title">Visual Perturbation: Rotation + Translation</h4>
+              <div class="droid-comparison-row">
+                <article class="video-card" data-track="droid" data-outcome="failure">
+                  <header>
+                    <div class="card-tags">
+                      <p class="chip">DROID</p>
+                      <p class="chip chip-model">DreamZero</p>
+                    </div>
+                    <h3>Visual Distortion (Rotate + Translate): Stress Test</h3>
+                  </header>
+                  <video controls preload="metadata">
+                    <source src="assets/videos/real/dz/rotation.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                  <p>DreamZero did not succeed under compounded visual shift (15° rotation + 10% translation).</p>
+                  <!-- to test perception-policy coupling -->
+                </article>
+
+                <article class="video-card" data-track="droid" data-outcome="success">
+                  <header>
+                    <div class="card-tags">
+                      <p class="chip">DROID</p>
+                      <p class="chip chip-model">pi0.5</p>
+                    </div>
+                    <h3>Visual Distortion (Rotate + Translate): Stress Test</h3>
+                  </header>
+                  <video controls preload="metadata">
+                    <source src="assets/videos/real/pi05/rotate_translate.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                  <p>In a low probability event, pi0.5 was able to succeed under the same compounded perturbation.</p>
+                  <!-- to expose relative sensitivity to view changes -->
+                </article>
+              </div>
+            </section>
+
+            <section class="droid-scenario">
+              <h4 class="droid-scenario-title"></h4>
+              <div class="droid-comparison-row">
+                <article class="video-card" data-track="droid" data-outcome="success">
+                  <header>
+                    <div class="card-tags">
+                      <p class="chip">DROID</p>
+                      <p class="chip chip-model">DreamZero</p>
+                    </div>
+                    <h3>Unfold the Cloth</h3>
+                  </header>
+                  <video controls preload="metadata">
+                    <source src="assets/videos/real/dz/unfold_cloth.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                  <p>DreamZero unfolds the cloth with larger unfolded area. </p>
+                </article>
+
+                <article class="video-card" data-track="droid" data-outcome="failure">
+                  <header>
+                    <div class="card-tags">
+                      <p class="chip">DROID</p>
+                      <p class="chip chip-model">pi0.5</p>
+                    </div>
+                    <h3>Unfold the Cloth</h3>
+                  </header>
+                  <video controls preload="metadata">
+                    <source src="assets/videos/real/pi05/unfold_cloth_fail.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                  <p>Pi0.5 has lower success rate in unfolding the cloth and also the unfolded area of the cloth is smaller, the completeness of the task is lower.</p>
+                </article>
+              </div>
+            </section>
+
+             <section class="droid-scenario">
+              <h4 class="droid-scenario-title"></h4>
+              <div class="droid-comparison-row">
+                <article class="video-card" data-track="droid" data-outcome="success">
+                  <header>
+                    <div class="card-tags">
+                      <p class="chip">DROID</p>
+                      <p class="chip chip-model">DreamZero</p>
+                    </div>
+                    <h3>Close the Middle Drawer</h3>
+                  </header>
+                  <video controls preload="metadata">
+                    <source src="assets/videos/real/dz/close_drawer.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                  <p>DreamZero closes the middle drawer.</p>
+                </article>
+
+                <article class="video-card" data-track="droid" data-outcome="failure">
+                  <header>
+                    <div class="card-tags">
+                      <p class="chip">DROID</p>
+                      <p class="chip chip-model">pi0.5</p>
+                    </div>
+                    <h3>Close the Middle Drawer</h3>
+                  </header>
+                  <video controls preload="metadata">
+                    <source src="assets/videos/real/pi05/drawer.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                  <p>Pi0.5 has lower success rate in closing the middle drawer.</p>
+                </article>
+              </div>
+            </section>
+
+            <section class="droid-scenario">
+              <h4 class="droid-scenario-title"></h4>
+              <div class="droid-comparison-row">
+                <article class="video-card" data-track="droid" data-outcome="failure">
+                  <header>
+                    <div class="card-tags">
+                      <p class="chip">DROID</p>
+                      <p class="chip chip-model">DreamZero</p>
+                    </div>
+                    <h3>Open the Middle Drawer</h3>
+                  </header>
+                  <video controls preload="metadata">
+                    <source src="assets/videos/real/dz/open_middle_drawer.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                  <p>DreamZero fails to open the middle drawer.</p>
+                </article>
+
+                <article class="video-card" data-track="droid" data-outcome="failure">
+                  <header>
+                    <div class="card-tags">
+                      <p class="chip">DROID</p>
+                      <p class="chip chip-model">pi0.5</p>
+                    </div>
+                    <h3>Open the Middle Drawer</h3>
+                  </header>
+                  <video controls preload="metadata">
+                    <source src="assets/videos/real/pi05/open_middle_drawer.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                  <p>Pi0.5 has 0% success rate in opening the middle drawer.</p>
+                </article>
+              </div>
+            </section>
+
+            <section class="droid-scenario">
+              <h4 class="droid-scenario-title">Compositional Task</h4>
+              <div class="droid-comparison-row">
+                <article class="video-card" data-track="droid" data-outcome="failure">
+                  <header>
+                    <div class="card-tags">
+                      <p class="chip">DROID</p>
+                      <p class="chip chip-model">DreamZero</p>
+                    </div>
+                    <h3>Compositional Multi-Object Instruction: Limitation</h3>
+                  </header>
+                  <video controls preload="metadata">
+                    <source src="assets/videos/real/dz/banana_and_pink_ball.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                  <p>DreamZero struggles when sequencing two object goals, revealing a limitation on higher compositional demands.</p>
+                </article>
+
+                <article class="video-card" data-track="droid" data-outcome="failure">
+                  <header>
+                    <div class="card-tags">
+                      <p class="chip">DROID</p>
+                      <p class="chip chip-model">pi0.5</p>
+                    </div>
+                    <h3>Compositional Multi-Object Instruction: Limitation</h3>
+                  </header>
+                  <video controls preload="metadata">
+                    <source src="assets/videos/real/pi05/banana_and_pink_ball.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                  <p>pi0.5 similarly fails to reliably complete the two-object sequence, indicating shared weakness in compositional execution.</p>
+                </article>
+              </div>
+            </section>
+
+            <section class="droid-scenario">
+              <h4 class="droid-scenario-title">Camera Lost</h4>
+              <div class="droid-comparison-row">
+                <article class="video-card" data-track="droid" data-outcome="success">
+                  <header>
+                    <div class="card-tags">
+                      <p class="chip">DROID</p>
+                      <p class="chip chip-model">DreamZero</p>
+                    </div>
+                    <h3>Sensor Dropout (Wrist Camera Lost): Failure Mode</h3>
+                  </header>
+                  <video controls preload="metadata">
+                    <source src="assets/videos/real/dz/camera_lost.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                  <p>With wrist camera loss, DreamZero was still able to accomplish the task of picking up the banana and placing it on the plate, demonstrating partial robustness.</p>
+                </article>
+
+                <article class="video-card" data-track="droid" data-outcome="failure">
+                  <header>
+                    <div class="card-tags">
+                      <p class="chip">DROID</p>
+                      <p class="chip chip-model">pi0.5</p>
+                    </div>
+                    <h3>Sensor Dropout (Wrist Camera Lost): Failure Mode</h3>
+                  </header>
+                  <video controls preload="metadata">
+                    <source src="assets/videos/real/pi05/camera_lost.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                  <p>pi0.5 also becomes unstable after wrist camera dropout, confirming this as a failure mode for both models.</p>
+                </article>
+              </div>
+            </section>
+          </div>
+        </div>
+
+        <div class="track-group" data-track-group="libero">
+          <h3 class="track-title">LIBERO (Simulation)</h3>
+
+          <div class="libero-task-grid">
+
+            <!-- ── Column headers ─────────────────────────────────────── -->
+            <div class="libero-row-label"></div>
+            <div class="libero-col-header">Pick up orange juice<br>→ basket</div>
+            <div class="libero-col-header">Put black bowl in<br>bottom drawer</div>
+            <div class="libero-col-header">Pick up book<br>→ caddy</div>
+            <div class="libero-col-header">Turn on stove<br>+ moka pot</div>
+
+            <!-- ── DreamZero ───────────────────────────────────────────── -->
+            <div class="libero-row-label"><span class="libero-model-name">DreamZero</span></div>
+
+            <article class="video-card" data-track="libero" data-outcome="success">
+              <header>
+                <div class="card-tags">
+                  <p class="chip chip-sim">LIBERO</p>
+                  <p class="chip chip-model">DreamZero</p>
+                </div>
+                <h3>Pick up Orange Juice</h3>
+              </header>
+              <video controls preload="metadata">
+                <source src="assets/videos/sim/dz/original/object/rollout_pick_up_the_orange_juice_and_place_it_in_the_basket_trial0_success.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              <p>Original setup. Success.</p>
+            </article>
+
+            <!-- <article class="video-card" data-track="libero" data-outcome="success">
+              <header>
+                <div class="card-tags">
+                  <p class="chip chip-sim">LIBERO</p>
+                  <p class="chip chip-model">DreamZero</p>
+                </div>
+                <h3>Put Black Bowl in Drawer</h3>
+              </header>
+              <video controls preload="metadata">
+                <source src="assets/videos/sim/dz/visual/rotate_15deg_translate_x0.1_y0.0/rollout_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it_trial0_success.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              <p>Visual: 15° rotation + 10% translation. Success.</p>
+            </article> -->
+            
+            <article class="video-card" data-track="libero" data-outcome="success">
+              <header>
+                <div class="card-tags">
+                  <p class="chip chip-sim">LIBERO</p>
+                  <p class="chip chip-model">DreamZero</p>
+                </div>
+                <h3>Put Black Bowl in Drawer</h3>
+              </header>
+              <video controls preload="metadata">
+                <source src="assets/videos/sim/dz/original/libero_10/rollout_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_c_trial19_success.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              <p>. Success.</p>
+            </article>
+
+            <!-- <article class="video-card" data-track="libero" data-outcome="success">
+              <header>
+                <div class="card-tags">
+                  <p class="chip chip-sim">LIBERO</p>
+                  <p class="chip chip-model">DreamZero</p>
+                </div>
+                <h3>Pick up Book → Caddy</h3>
+              </header>
+              <video controls preload="metadata">
+                <source src="assets/videos/sim/dz/policy/object_shift_x0.05_y0.0/rollout_pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy_trial0_success.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              <p>Policy: object shift +5 cm. Success.</p>
+            </article> -->
+
+            <article class="video-card" data-track="libero" data-outcome="success">
+              <header>
+                <div class="card-tags">
+                  <p class="chip chip-sim">LIBERO</p>
+                  <p class="chip chip-model">DreamZero</p>
+                </div>
+                <h3>Pick up Book → Caddy</h3>
+              </header>
+              <video controls preload="metadata">
+                <source src="assets/videos/sim/dz/original/libero_10/rollout_pick_up_the_book_and_place_it_in_the_back_compartment_of_the_trial19_success.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              <p>Original. Success.</p>
+            </article>
+
+            <!-- <article class="video-card" data-track="libero" data-outcome="success">
+              <header>
+                <div class="card-tags">
+                  <p class="chip chip-sim">LIBERO</p>
+                  <p class="chip chip-model">DreamZero</p>
+                </div>
+                <h3>Turn on Stove + Moka Pot</h3>
+              </header>
+              <video controls preload="metadata">
+                <source src="assets/videos/sim/dz/visual/rotate_15deg_translate_x0.1_y0.0/libero_10/rollout_turn_on_the_stove_and_put_the_moka_pot_on_it_trial0_success.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              <p>Visual: 15° rotation + 10% translation. Success.</p>
+            </article> -->
+            <article class="video-card" data-track="libero" data-outcome="success">
+              <header>
+                <div class="card-tags">
+                  <p class="chip chip-sim">LIBERO</p>
+                  <p class="chip chip-model">DreamZero</p>
+                </div>
+                <h3>Turn on Stove + Moka Pot</h3>
+              </header>
+              <video controls preload="metadata">
+                <source src="assets/videos/sim/dz/original/libero_10/rollout_turn_on_the_stove_and_put_the_moka_pot_on_it_trial19_success.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              <p>. Success.</p>
+            </article>
+
+
+            <!-- ── pi0.5 ────────────────────────────────────────────── -->
+            <div class="libero-row-label"><span class="libero-model-name">pi0.5</span></div>
+
+            <article class="video-card" data-track="libero" data-outcome="success">
+              <header>
+                <div class="card-tags">
+                  <p class="chip chip-sim">LIBERO</p>
+                  <p class="chip chip-model">pi0.5</p>
+                </div>
+                <h3>Pick up Orange Juice</h3>
+              </header>
+              <video controls preload="metadata">
+                <source src="assets/videos/sim/pi05/policy/object_shift_x0.05_y0.0/libero_object/rollout_pick_up_the_orange_juice_and_place_it_in_the_basket_trial0_success.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              <!-- Policy: object shift +5 cm -->
+              <p>Original setup. Success.</p>
+            </article>
+
+            <article class="video-card" data-track="libero" data-outcome="success">
+              <header>
+                <div class="card-tags">
+                  <p class="chip chip-sim">LIBERO</p>
+                  <p class="chip chip-model">pi0.5</p>
+                </div>
+                <h3>Put Black Bowl in Drawer</h3>
+              </header>
+              <video controls preload="metadata">
+                <source src="assets/videos/sim/pi05/policy/object_shift_x0.05_y0.0/libero_10/rollout_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it_trial0_success.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              <!-- Policy: object shift +5 cm. -->
+              <p>Original setup. Success.</p>
+            </article>
+
+            <article class="video-card" data-track="libero" data-outcome="success">
+              <header>
+                <div class="card-tags">
+                  <p class="chip chip-sim">LIBERO</p>
+                  <p class="chip chip-model">pi0.5</p>
+                </div>
+                <h3>Pick up Book → Caddy</h3>
+              </header>
+              <video controls preload="metadata">
+                <source src="assets/videos/sim/pi05/policy/object_shift_x0.05_y0.0/libero_10/rollout_pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy_trial0_success.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              <!-- Policy: object shift +5 cm -->
+              <p>Original setup. Success.</p>
+            </article>
+
+            <article class="video-card" data-track="libero" data-outcome="success">
+              <header>
+                <div class="card-tags">
+                  <p class="chip chip-sim">LIBERO</p>
+                  <p class="chip chip-model">pi0.5</p>
+                </div>
+                <h3>Turn on Stove + Moka Pot</h3>
+              </header>
+              <video controls preload="metadata">
+                <source src="assets/videos/sim/pi05/policy/object_shift_x0.05_y0.0/libero_10/rollout_turn_on_the_stove_and_put_the_moka_pot_on_it_trial0_success.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              <!-- Policy: object shift +5 cm -->
+              <p>Original setup. Success.</p>
+            </article>
+
+            <!-- ── Cosmos ───────────────────────────────────────────── -->
+            <div class="libero-row-label"><span class="libero-model-name">Cosmos</span></div>
+
+            <article class="video-card" data-track="libero" data-outcome="failure">
+              <header>
+                <div class="card-tags">
+                  <p class="chip chip-sim">LIBERO</p>
+                  <p class="chip chip-model">Cosmos</p>
+                </div>
+                <h3>Pick up Orange Juice</h3>
+              </header>
+              <video controls preload="metadata">
+                <source src="assets/videos/sim/cosmos/policy/original/libero_object/rollout_pick_up_the_orange_juice_and_place_it_in_the_basket_trial0_failure.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              <p>Original. Success.</p>
+            </article>
+
+            <!-- <article class="video-card" data-track="libero" data-outcome="failure">
+              <header>
+                <div class="card-tags">
+                  <p class="chip chip-sim">LIBERO</p>
+                  <p class="chip chip-model">Cosmos</p>
+                </div>
+                <h3>Pick up Orange Juice</h3>
+              </header>
+              <video controls preload="metadata">
+                <source src="assets/videos/sim/cosmos/policy/random_action_p0.25_s1.0/libero_object/rollout_pick_up_the_orange_juice_and_place_it_in_the_basket_trial0_failure.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              <p>Policy: random actions (25%). Failure.</p>
+            </article> -->
+
+            <!-- <article class="video-card" data-track="libero" data-outcome="success">
+              <header>
+                <div class="card-tags">
+                  <p class="chip chip-sim">LIBERO</p>
+                  <p class="chip chip-model">Cosmos</p>
+                </div>
+                <h3>Put Black Bowl in Drawer</h3>
+              </header>
+              <video controls preload="metadata">
+                <source src="assets/videos/sim/cosmos/visual/rotate_15deg_translate_x0.1_y0.0/libero_10/rollout_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it_trial0_success.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              <p>Visual: 15° rotation + 10% translation. Success.</p>
+            </article> -->
+
+            <article class="video-card" data-track="libero" data-outcome="success">
+              <header>
+                <div class="card-tags">
+                  <p class="chip chip-sim">LIBERO</p>
+                  <p class="chip chip-model">Cosmos</p>
+                </div>
+                <h3>Put Black Bowl in Drawer</h3>
+              </header>
+              <video controls preload="metadata">
+                <source src="assets/videos/sim/cosmos/policy/object_shift_x0.05_y0.0/libero_10/rollout_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it_trial0_success.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              <p>Original. Success.</p>
+            </article>
+
+            <!-- <article class="video-card" data-track="libero" data-outcome="success">
+              <header>
+                <div class="card-tags">
+                  <p class="chip chip-sim">LIBERO</p>
+                  <p class="chip chip-model">Cosmos</p>
+                </div>
+                <h3>Pick up Book → Caddy</h3>
+              </header>
+              <video controls preload="metadata">
+                <source src="assets/videos/sim/cosmos/visual/rotate_15deg_translate_x0.1_y0.0/libero_10/rollout_pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy_trial0_success.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              <p>Visual: 15° rotation + 10% translation. Success.</p>
+            </article> -->
+
+            <article class="video-card" data-track="libero" data-outcome="success">
+              <header>
+                <div class="card-tags">
+                  <p class="chip chip-sim">LIBERO</p>
+                  <p class="chip chip-model">Cosmos</p>
+                </div>
+                <h3>Pick up Book → Caddy</h3>
+              </header>
+              <video controls preload="metadata">
+                <source src="assets/videos/sim/cosmos/policy/object_shift_x0.05_y0.0/libero_10/rollout_pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy_trial0_success.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              <p>Original. Success.</p>
+            </article>
+
+
+            <!-- <article class="video-card" data-track="libero" data-outcome="success">
+              <header>
+                <div class="card-tags">
+                  <p class="chip chip-sim">LIBERO</p>
+                  <p class="chip chip-model">Cosmos</p>
+                </div>
+                <h3>Turn on Stove + Moka Pot</h3>
+              </header>
+              <video controls preload="metadata">
+                <source src="assets/videos/sim/cosmos/visual/rotate_15deg_translate_x0.1_y0.0/libero_10/rollout_turn_on_the_stove_and_put_the_moka_pot_on_it_trial0_success.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              <p>Visual: 15° rotation + 10% translation. Success.</p>
+            </article> -->
+
+            <article class="video-card" data-track="libero" data-outcome="success">
+              <header>
+                <div class="card-tags">
+                  <p class="chip chip-sim">LIBERO</p>
+                  <p class="chip chip-model">Cosmos</p>
+                </div>
+                <h3>Turn on Stove + Moka Pot</h3>
+              </header>
+              <video controls preload="metadata">
+                <source src="assets/videos/sim/cosmos/policy/object_shift_x0.05_y0.0/libero_10/rollout_turn_on_the_stove_and_put_the_moka_pot_on_it_trial0_success.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              <p>Original. Success.</p>
+            </article>
+
+            <!-- ── OpenVLA ──────────────────────────────────────────── -->
+            <div class="libero-row-label"><span class="libero-model-name">OpenVLA</span></div>
+
+            <article class="video-card" data-track="libero" data-outcome="failure">
+              <header>
+                <div class="card-tags">
+                  <p class="chip chip-sim">LIBERO</p>
+                  <p class="chip chip-model">OpenVLA</p>
+                </div>
+                <h3>Pick up Orange Juice</h3>
+              </header>
+              <video controls preload="metadata">
+                <source src="assets/videos/sim/openvla/success=False--task=pick_up_the_orange_juice_and_place_it_in_the_baske.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              <p>Original.Failure.</p>
+            </article>
+
+            <article class="video-card" data-track="libero" data-outcome="failure">
+              <header>
+                <div class="card-tags">
+                  <p class="chip chip-sim">LIBERO</p>
+                  <p class="chip chip-model">OpenVLA</p>
+                </div>
+                <h3>Put Black Bowl in Drawer</h3>
+              </header>
+              <video controls preload="metadata">
+                <source src="assets/videos/sim/openvla/success=False--task=put_the_black_bowl_in_the_bottom_drawer_of_the_cab.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              <p>Original.Failure.</p>
+            </article>
+
+            <article class="video-card" data-track="libero" data-outcome="success">
+              <header>
+                <div class="card-tags">
+                  <p class="chip chip-sim">LIBERO</p>
+                  <p class="chip chip-model">Diffusion Policy</p>
+                </div>
+                <h3>Pick up Book → Caddy</h3>
+              </header>
+              <video controls preload="metadata">
+                <source src="assets/videos/sim/openvla/book.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              <p>Original setup. Success.</p>
+            </article>
+
+            <article class="video-card" data-track="libero" data-outcome="failure">
+              <header>
+                <div class="card-tags">
+                  <p class="chip chip-sim">LIBERO</p>
+                  <p class="chip chip-model">OpenVLA</p>
+                </div>
+                <h3>Turn on Stove + Moka Pot</h3>
+              </header>
+              <video controls preload="metadata">
+                <source src="assets/videos/sim/openvla/success=False--task=turn_on_the_stove_and_put_the_moka_pot_on_it.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              <p>Original. Failure.</p>
+            </article>
+
+            <!-- ── Diffusion Policy ────────────────────────────────── -->
+            <div class="libero-row-label"><span class="libero-model-name">Diffusion Policy</span></div>
+
+            <article class="video-card" data-track="libero" data-outcome="failure">
+              <header>
+                <div class="card-tags">
+                  <p class="chip chip-sim">LIBERO</p>
+                  <p class="chip chip-model">Diffusion Policy</p>
+                </div>
+                <h3>Pick up Orange Juice</h3>
+              </header>
+              <video controls preload="metadata">
+                <source src="assets/videos/sim/dp/prompt_synonym/libero_object/rollout_pick_up_the_orange_juice_and_place_it_in_the_basket_trial0_failure.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              <p>Prompt synonym variant. Failure.</p>
+            </article>
+
+            <article class="video-card" data-track="libero" data-outcome="success">
+              <header>
+                <div class="card-tags">
+                  <p class="chip chip-sim">LIBERO</p>
+                  <p class="chip chip-model">Diffusion Policy</p>
+                </div>
+                <h3>Put Black Bowl in Drawer</h3>
+              </header>
+              <video controls preload="metadata">
+                <source src="assets/videos/sim/dp/none/libero_10/rollout_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_c_trial0_success.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              <p>Original setup. Success.</p>
+            </article>
+
+            <article class="video-card" data-track="libero" data-outcome="success">
+              <header>
+                <div class="card-tags">
+                  <p class="chip chip-sim">LIBERO</p>
+                  <p class="chip chip-model">Diffusion Policy</p>
+                </div>
+                <h3>Pick up Book → Caddy</h3>
+              </header>
+              <video controls preload="metadata">
+                <source src="assets/videos/sim/dp/none/libero_10/rollout_pick_up_the_book_and_place_it_in_the_back_compartment_of_the_trial0_success.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              <p>Original setup. Success.</p>
+            </article>
+
+            <article class="video-card" data-track="libero" data-outcome="success">
+              <header>
+                <div class="card-tags">
+                  <p class="chip chip-sim">LIBERO</p>
+                  <p class="chip chip-model">Diffusion Policy</p>
+                </div>
+                <h3>Turn on Stove + Moka Pot</h3>
+              </header>
+              <video controls preload="metadata">
+                <source src="assets/videos/sim/dp/none/libero_10/rollout_turn_on_the_stove_and_put_the_moka_pot_on_it_trial0_success.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              <p>Original setup. Success.</p>
+            </article>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>© <span id="year"></span> Robot FM Project. Built for paper review.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
